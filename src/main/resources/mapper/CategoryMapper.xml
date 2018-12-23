@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Category表的真身 -->
+
+<mapper namespace="com.mytest.mapper.CategoryMapper">
+
+<!-- id为方法名  resultType为返回类型(要精确到位) -->
+
+<!-- 无传入参数 -->
+<select id="findAllCategory" resultType="com.mytest.Databases.Category">
+    select * from category
+</select>
+
+</mapper>
