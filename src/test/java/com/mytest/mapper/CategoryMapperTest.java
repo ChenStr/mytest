@@ -25,4 +25,25 @@ public class CategoryMapperTest {
         List<Category> categories = categoryMapper.findAllCategory();
         Assert.assertNotEquals(0,categories.size());
     }
+
+    @Test
+    public void findCategoryByCateName()
+    {
+        List<Category> categories=categoryMapper.findCategoryByCateName("时事热点");
+        Assert.assertNotEquals(0,categories.size());
+    }
+
+//    @Test
+//    public void test()
+//    {
+//        List<Category> categories=categoryMapper.test("category");
+//        Assert.assertNotEquals(0,categories.size());
+//    }
+
+    @Test
+    public void findCategoryBylikeCateNameAndCateId()
+    {
+        List<Category> categories=categoryMapper.findCategoryBylikeCateNameAndCateId("%热点%","2");
+        Assert.assertNotEquals(0,categories.size());
+    }
 }
