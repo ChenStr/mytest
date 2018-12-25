@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface CategoryMapper {
@@ -12,7 +13,7 @@ public interface CategoryMapper {
 
     List<Category> findCategoryByCateName(@Param("cateName") String cateName);
 
-//    List<Category> test(@Param("datebase") String datebase);
-
     List<Category> findCategoryBylikeCateNameAndCateId(@Param("cateName") String cateName,@Param("cateId") String cateId);
+
+    List<Category> findCategoryBylikeCateNameAndCateIdMap(Map<String,Object> data);
 }

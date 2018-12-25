@@ -7,9 +7,10 @@ import lombok.Data;
  */
 
 @Data
-public class User {
+public class Users {
     //映射用户id
-    private String userId;
+//    private String userId;
+    private String id;
     //映射用户name
     private String userName;
     //映射用户pass

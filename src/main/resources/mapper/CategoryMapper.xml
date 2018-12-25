@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-        <!-- Category表的真身 -->
+<!-- Category表的真身 -->
 
 <mapper namespace="com.mytest.mapper.CategoryMapper">
 
@@ -23,13 +23,6 @@
             </if>
         </where>
     </select>
-    <!-- 测试方法 -->
-    <!--<select id="test" resultType="com.mytest.Databases.Category">-->
-        <!--select * from-->
-        <!--<if test="datebase!=null and datebase.trim()!=''" >-->
-            <!--#{datebase}-->
-        <!--</if>-->
-    <!--</select>-->
 
     <!-- 多参数传递 -->
     <select id="findCategoryBylikeCateNameAndCateId" resultType="com.mytest.Databases.Category">
@@ -44,5 +37,15 @@
         </where>
     </select>
 
-
+    <select id="findCategoryBylikeCateNameAndCateIdMap" resultType="com.mytest.Databases.Category">
+        select * from category
+        <where>
+            <if test="name!=null and name.trim()!=''">
+                and cate_name like #{name}
+            </if>
+            <if test="id!=null and id.trim()!=''">
+                and cate_id=#{id}
+            </if>
+        </where>
+    </select>
 </mapper>

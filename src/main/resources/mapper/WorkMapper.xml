@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 文章表的真身 -->
+
+<mapper namespace="com.mytest.mapper.WorkMapper" >
+    <!-- 表连接查询 需要使用resultMap来合并各个表的查询结果映射到一个结果集里 -->
+    <select id="findAll" resultMap="findAll1" parameterType="String">
+        SELECT * FROM works w
+        left join users u on w.user_id=u.user_id
+        left join comment c on w.work_id=c.work_id
+    </select>
+
+    <resultMap id="findAll1" type="com.mytest.VO.WorksVO" autoMapping="true">
+        <id property="id" column="work_id"/>
+        <association property="user" javaType="com.mytest.Databases.Users" column="user_id" autoMapping="true">
+            <id property="id" column="user_id"/>
+        </association>
+        <collection property="comment" ofType="com.mytest.Databases.Comment" column="comment_id" autoMapping="true">
+            <id property="id" column="comment_id"/>
+        </collection>
+    </resultMap>
+</mapper>

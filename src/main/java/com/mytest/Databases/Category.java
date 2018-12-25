@@ -8,7 +8,8 @@ import lombok.Data;
 @Data
 public class Category {
     //映射栏目表id
-    private String cateId;
+//    private String cateId;
+    private String id;
     //映射栏目表名称
     private String cateName;
 }
