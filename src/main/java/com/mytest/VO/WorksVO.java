@@ -18,9 +18,9 @@ public class WorksVO extends Works{
     //映射用户(一对一)
     private Users user;
 
-
     //映射评论(一对多)
     private List<Comment> comment;
+
 
 
 }

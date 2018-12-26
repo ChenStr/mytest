@@ -22,4 +22,11 @@ public class WorkMapperTest {
         List<WorksVO> works=workMapper.findAll();
         Assert.assertNotEquals(0,works.size());
     }
+
+    @Test
+    public void findOne()
+    {
+        WorksVO works=workMapper.findOne("2");
+        Assert.assertNotNull(works);
+    }
 }

@@ -9,8 +9,8 @@ import lombok.Data;
 @Data
 public class Works {
     //文章id
-//    private String wordId;
-    private String id;
+    private String workId;
+//    private String id;
     //文章标题
     private String workTitle;
     //文章内容
