@@ -18,9 +18,9 @@ public class Works {
     //文章图片
     private String workImg;
     //文章作者id
-    private String userId;
+    private String wuserId;
     //文章对应栏目id
-    private String cateId;
+    private String wcateId;
     //文章状态(0已删除,1未删除)
     private Integer workStatus;
 }

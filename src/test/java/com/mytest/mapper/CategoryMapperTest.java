@@ -4,18 +4,15 @@ import com.mytest.Databases.Category;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.Assert.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -53,4 +50,25 @@ public class CategoryMapperTest {
         Assert.assertNotEquals(0,categories.size());
     }
 
+    @Test
+    public void AddOneCategory()
+    {
+//        Object str=categoryMapper.AddOneCategory("4","测试栏目");
+//        Assert.assertNotNull(str);
+        int t = categoryMapper.AddOneCategory("4","测试栏目");
+        System.out.println(t);
+    }
+    @Test
+    public void DeleteOneCategory()
+    {
+        int t = categoryMapper.DeleteOneCategory("4");
+        System.out.println(t);
+    }
+
+    @Test
+    public void UpdateOneCategory()
+    {
+        int t = categoryMapper.UpdateOneCategory("4","柠檬酸了");
+        System.out.println(t);
+    }
 }

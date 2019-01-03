@@ -3,12 +3,12 @@
 
 <!-- 文章表的真身 -->
 
-<mapper namespace="com.mytest.mapper.WorkMapper" >
+<mapper namespace="com.mytest.mapper.WorkMapper">
     <!-- 表连接查询 需要使用resultMap来合并各个表的查询结果映射到一个结果集里 -->
     <select id="findAll" resultMap="findAll1">
         SELECT * FROM works w
-        left join users u on w.user_id=u.user_id
-        left join comment c on w.work_id=c.work_id
+        left join users u on w.wuser_id=u.user_id
+        left join comment c on w.work_id=c.cwork_id
     </select>
 
     <!-- column 数据库里的列  property java类的属性 -->
@@ -34,18 +34,12 @@
 
     <resultMap id="findOne1" type="com.mytest.VO.WorksVO" autoMapping="true">
         <id column="work_id" property="workId"/>
-        <association property="user" column="user_id" select="findOneByUserId" autoMapping="true" />
-        <!--<association property="user" column="user_id" select="findOneByUserId" autoMapping="true">-->
-            <!--<id column="user_id" property="userId"/>-->
-        <!--</association>-->
+        <association property="user" column="wuser_id" select="findOneByUserId" autoMapping="true" />
         <collection property="comment" column="work_id" select="findAllByWorkId" autoMapping="true" />
-        <!--<collection property="comment" ofType="com.mytest.Databases.Comment" column="work_id" select="findAllByWorkId" autoMapping="true">-->
-            <!--<id column="work_id" property="workId"/>-->
-        <!--</collection>-->
     </resultMap>
 
     <select id="findAllByWorkId" resultType="com.mytest.Databases.Comment">
-        select * from comment where work_id=#{value}
+        select * from comment where cwork_id=#{value}
     </select>
 
     <select id="findOneByUserId" resultType="com.mytest.Databases.Users">

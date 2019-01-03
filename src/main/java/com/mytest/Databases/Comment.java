@@ -13,9 +13,9 @@ public class Comment {
     //对应评论内容
     private String commentText;
     //对应文章id
-    private String workId;
+    private String cworkId;
     //对应用户id
-    private String userId;
+    private String cuserId;
     //对应评论状态
     private Integer commentStatus;
 }

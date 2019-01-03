@@ -48,4 +48,16 @@
             </if>
         </where>
     </select>
+
+    <insert id="AddOneCategory" parameterType="com.mytest.Databases.Category">
+        insert into category(cate_id,cate_name) values(#{cateId},#{cateName})
+    </insert>
+
+    <delete id="DeleteOneCategory" parameterType="String">
+        delete from category where cate_id=#{cateId}
+    </delete>
+
+    <update id="UpdateOneCategory" parameterType="com.mytest.Databases.Category">
+        update category set cate_name=#{cateName} where cate_id=#{cateId}
+    </update>
 </mapper>
